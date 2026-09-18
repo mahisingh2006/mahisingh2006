@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mahi Singh — Political Science &amp; Economics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #EDEEE9;
+    --paper-2: #E2E4DA;
+    --ink: #1C2B45;
+    --ink-soft: #4B5A72;
+    --brass: #9C7530;
+    --maroon: #7A2331;
+    --rule: rgba(28,43,69,0.16);
+    --font-serif: 'Newsreader', Georgia, 'Times New Roman', serif;
+    --font-sans: 'Work Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #141C2C;
+      --paper-2: #1C2438;
+      --ink: #ECEEE8;
+      --ink-soft: #AEB8C6;
+      --brass: #D9A64E;
+      --maroon: #DE8496;
+      --rule: rgba(236,238,232,0.16);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #141C2C;
+    --paper-2: #1C2438;
+    --ink: #ECEEE8;
+    --ink-soft: #AEB8C6;
+    --brass: #D9A64E;
+    --maroon: #DE8496;
+    --rule: rgba(236,238,232,0.16);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation: none !important; transition: none !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-sans);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 4rem 1.75rem 6rem;
+    display: flex;
+    gap: 4.5rem;
+    align-items: flex-start;
+  }
+
+  /* ---------- Sidebar ---------- */
+  .sidebar {
+    flex: 0 0 240px;
+    position: sticky;
+    top: 3.5rem;
+  }
+  .sidebar h1 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1.7rem;
+    line-height: 1.2;
+    margin: 0 0 0.35rem;
+  }
+  .sidebar .role {
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    margin: 0 0 1.75rem;
+  }
+  .sidebar nav { margin-bottom: 2rem; }
+  .sidebar nav a {
+    display: block;
+    color: var(--ink-soft);
+    text-decoration: none;
+    font-size: 0.92rem;
+    padding: 0.32rem 0;
+    border-left: 2px solid transparent;
+    padding-left: 0.75rem;
+    margin-left: -0.75rem;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .sidebar nav a:hover,
+  .sidebar nav a:focus-visible {
+    color: var(--ink);
+    border-left-color: var(--brass);
+  }
+  .sidebar .contact {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid var(--rule);
+    padding-top: 1.25rem;
+    font-size: 0.86rem;
+  }
+  .sidebar .contact li { margin-bottom: 0.55rem; color: var(--ink-soft); }
+  .sidebar .contact a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--rule); }
+  .sidebar .contact a:hover { border-bottom-color: var(--brass); color: var(--brass); }
+
+  /* ---------- Main content ---------- */
+  main { flex: 1 1 auto; min-width: 0; }
+
+  .hero {
+    max-width: 46ch;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 2.6vw, 2.05rem);
+    line-height: 1.35;
+    color: var(--ink);
+    margin: 0 0 3.5rem;
+    animation: rise 0.7s ease-out both;
+  }
+  @keyframes rise {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  section { margin-bottom: 3.5rem; scroll-margin-top: 2rem; }
+  section h2 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin: 0 0 1.25rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  p { max-width: 62ch; color: var(--ink-soft); }
+  p.lede { color: var(--ink); }
+
+  .entry { margin-bottom: 1.75rem; }
+  .entry:last-child { margin-bottom: 0; }
+  .entry-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.35rem;
+  }
+  .entry-head h3 {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+    color: var(--ink);
+  }
+  .entry-head .org { color: var(--ink-soft); font-size: 0.9rem; }
+  .entry-head .when {
+    font-size: 0.8rem;
+    color: var(--brass);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  .entry ul {
+    margin: 0.6rem 0 0;
+    padding-left: 1.1rem;
+    max-width: 60ch;
+  }
+  .entry li { color: var(--ink-soft); margin-bottom: 0.4rem; }
+
+  .chips { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .chip {
+    font-size: 0.82rem;
+    padding: 0.38rem 0.8rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    color: var(--ink-soft);
+  }
+
+  .langs { display: flex; gap: 2.5rem; flex-wrap: wrap; }
+  .langs div strong { display: block; font-family: var(--font-serif); font-size: 1rem; color: var(--ink); }
+  .langs div span { font-size: 0.85rem; color: var(--ink-soft); }
+
+  .current-list { list-style: none; padding: 0; margin: 0; max-width: 58ch; }
+  .current-list li {
+    position: relative;
+    padding-left: 1.1rem;
+    margin-bottom: 0.7rem;
+    color: var(--ink-soft);
+  }
+  .current-list li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0.55em;
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--maroon);
+  }
+
+  footer {
+    border-top: 1px solid var(--rule);
+    padding-top: 1.75rem;
+    color: var(--ink-soft);
+    font-size: 0.85rem;
+  }
+  footer a { color: var(--brass); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 760px) {
+    .page { flex-direction: column; padding: 2.75rem 1.25rem 4rem; gap: 2.5rem; }
+    .sidebar { position: static; flex: none; width: 100%; }
+    .sidebar nav { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; margin-bottom: 1.5rem; }
+    .sidebar nav a { padding-left: 0; margin-left: 0; border-left: none; border-bottom: 2px solid transparent; }
+    .sidebar nav a:hover, .sidebar nav a:focus-visible { border-bottom-color: var(--brass); border-left-color: transparent; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <aside class="sidebar">
+    <h1>Mahi Singh</h1>
+    <p class="role">Political Science &amp; Economics<br>University of Delhi</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#currently">Currently</a>
+      <a href="#skills">Skills</a>
+      <a href="#languages">Languages</a>
+    </nav>
+    <ul class="contact">
+      <li>New Delhi, India</li>
+      <li><a href="mailto:mahisingh032006@gmail.com">mahisingh032006@gmail.com</a></li>
+      <li><a href="tel:+919369959659">+91 93699 59659</a></li>
+      <li><a href="https://linkedin.com/in/mahi-singh-530545402" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+  </aside>
+
+  <main>
+    <p class="hero">I'm trying to understand how societies argue, decide, and change — and to get good enough at writing and speaking to take part in it.</p>
+
+    <section id="about">
+      <h2>About</h2>
+      <p class="lede">Second-year B.A. Programme student at Mata Sundri College for Women, University of Delhi, majoring in Political Science with a minor in Economics. Most of what pulls my attention comes back to the same question: how do public issues get argued, decided, and communicated — and how do you do that well.</p>
+      <p>Alongside coursework, I'm working through a certification in Artificial Intelligence and picking up programming where it's useful, mainly to understand how technology intersects with the public problems I study. I'm drawn to writing, debate, and communication across cultures and borders.</p>
+    </section>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <div class="entry">
+        <div class="entry-head">
+          <div>
+            <h3>Volunteer</h3>
+            <div class="org">Vishalakshi Foundation</div>
+          </div>
+          <div class="when">Apr 2026 — Present</div>
+        </div>
+        <ul>
+          <li>Participate in community service initiatives and outreach programs.</li>
+          <li>Contribute to educational drives, cleanliness campaigns, food distribution, and fundraising activities as assigned.</li>
+          <li>Collaborate with fellow volunteers to organise and support social impact initiatives.</li>
+          <li>Build communication, teamwork, and organisational skills through active volunteer engagement.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="entry">
+        <div class="entry-head">
+          <div>
+            <h3>Mata Sundri College for Women</h3>
+            <div class="org">University of Delhi — B.A. Programme, Political Science (Major), Economics (Minor)</div>
+          </div>
+          <div class="when">Expected 2027</div>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="entry-head">
+          <div>
+            <h3>Artificial Intelligence Certification</h3>
+            <div class="org">In progress</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="currently">
+      <h2>Currently</h2>
+      <ul class="current-list">
+        <li>Working towards joining my college's Entrepreneurship Cell, on the events side.</li>
+        <li>Learning Spanish, a little at a time, on Duolingo.</li>
+        <li>Reading and writing around public issues and looking for debate opportunities.</li>
+      </ul>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="chips">
+        <span class="chip">Communication</span>
+        <span class="chip">Teamwork &amp; Collaboration</span>
+        <span class="chip">Leadership</span>
+        <span class="chip">Event Coordination</span>
+        <span class="chip">Public Speaking</span>
+        <span class="chip">Research &amp; Analysis</span>
+        <span class="chip">Community Outreach</span>
+        <span class="chip">Time Management</span>
+        <span class="chip">Artificial Intelligence (Learning)</span>
+      </div>
+    </section>
+
+    <section id="languages">
+      <h2>Languages</h2>
+      <div class="langs">
+        <div><strong>English</strong><span>Professional proficiency</span></div>
+        <div><strong>Hindi</strong><span>Native proficiency</span></div>
+      </div>
+    </section>
+
+    <footer>
+      Get in touch at <a href="mailto:mahisingh032006@gmail.com">mahisingh032006@gmail.com</a> or on <a href="https://linkedin.com/in/mahi-singh-530545402" target="_blank" rel="noopener">LinkedIn</a>.
+    </footer>
+  </main>
+
+</div>
+</body>
+</html>
